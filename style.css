@@ -108,6 +108,10 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 2s ease-in-out;
 }
 
 #page1 h1 {

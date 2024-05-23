@@ -43,3 +43,35 @@ elems.forEach(function (ele) {
         page2.style.backgroundImage = `url(${bgimg})`
     })
 })
+
+
+// IMages
+
+const images = [
+    'https://works.studio/assets/imager/images/mineral-health/38349/MIN-1_240208_000417_1a58980f77ae6d8c6a1e26c40e92a05d.jpg',
+    'https://works.studio/assets/imager/images/converse-global-fa23/37951/converse-21_1a58980f77ae6d8c6a1e26c40e92a05d.jpg',
+    'https://works.studio/assets/imager/images/skky-partners/37986/skky-25_1a58980f77ae6d8c6a1e26c40e92a05d.jpg',
+    'https://works.studio/assets/imager/images/boldly/37287/BOLDLY-1_1a58980f77ae6d8c6a1e26c40e92a05d.jpg',
+    'https://works.studio/assets/imager/images/us-soccer/38414/USS-1_240208_001956_1a58980f77ae6d8c6a1e26c40e92a05d.jpg'
+];
+
+let curr_index = 0;
+let slideshowInterval;
+
+function changeBackground() {
+    const slideshow = document.querySelector('#page2')
+
+    slideshow.style.backgroundImage = `url(${images[curr_index]})`;
+
+    curr_index = (curr_index + 1) % images.length;
+}
+slideshowInterval = setInterval(changeBackground, 3000);
+function startSlideshow() {
+    slideshowInterval = setInterval(changeBackground, 3000);
+}
+function stopSlideshow() {
+    clearInterval(slideshowInterval);
+}
+
+document.querySelector('#page2').addEventListener('mouseover', stopSlideshow);
+document.querySelector('#page2').addEventListener('mouseleave', startSlideshow);
